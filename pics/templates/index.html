@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {{block.super}}
+
 <div class="col-md-6 text-center ">
         <div >
              <h3>categories</h3>
@@ -68,5 +69,6 @@
               {% empty %}
           <h3>Oops! No images under this</h3>
           </div>
+          </body>
 {% endfor%}
 {% endblock%}
