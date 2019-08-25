@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block content %}
+        <div class="beuty">
+        <div class="row">
+                {% for pic in all_pic %}
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 columns">
+                    <div class="scale">
+                        <div class="opacity">
+                            <div class="view">
+                                <a href="" class="btn-view">{{pic.name}}</a>
+                            </div>
+                        </div>
+                    <img src="{{pic.image.url}}" alt="{{pic.name}}" class="img-fluid myimage">
+                         <button id='btn-copy' onclick="copyLink()"   data-info="{{request.get_host }}{{pic.image.url}}" type="button" class="btn btn-info btn-xs">
+                        <span class="glyphicon glyphicon-copy"></span>
+                        copy link
+                        </button>
+                        
+                        <div id="myModal" class="modal">
+            
+                            <!-- The Close Button -->
+                            <span class="close">&times;</span>
+                          
+                            <!-- Modal Content (The Image) -->
+                            <img src='' class="modal-content" id="modal-con">
+                           
+                            <!-- Modal Caption (Image Text) -->
+                            <div id="caption"></div>
+                          </div>
+                        
+            
+                            <div class="container">
+                                
+                                   
+                                <button
+            
+                                id='details'
+
+                                data-description='{{pic.description}}'
+
+                                data-location='{{pic.location}}'
+                    
+                                data-category='{{pic.category}}'
+                    
+                                
+                    
+                                type="button"
+                    
+                                class="btn btn-info btn-xs info-btn"
+                    
+                                data-toggle="modal">
+                                             View Details
+                    
+                              </button>
+            
+                              <div id="modal-details" class="modal">
+            
+                                <span class="close">&times;</span>
+                      
+                                <div class="modal-content">
+                      
+                                <!-- <blockquote id="caption-d"> -->
+                      
+                                  <ul>
+                      
+                                    <label>DESCRIPTION:</label>
+                      
+                                    <li class="oneone"></li>
+                      
+                                    <label>LOCATION:</label>
+                      
+                                    <li class="twotwo"></li>
+                                    <label>CATEGORY:</label>
+                                    <li class="threethree"></li>
+                                  </ul>
+                                <!-- </blockquote> -->
+                                </div>
+                              </div>
+                          </div> 
+                      </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endblock %}
+</div>
