@@ -1,0 +1,36 @@
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% endblock %}
+<nav class="navbar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+          <h1><a  href="{% url 'gallery' %}">The Gallery</a></h1>
+      </div>
+      <!-- <li class="nav-item dropdown">
+        <a style="font-size: 17px" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Locations
+        </a>
+        <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
+          {% for location in pics %}
+          <a style="font-size: 17px" class="dropdown-item" href="/location/{{location.id}}">{{location.name}}</a>
+          {% endfor %}
+        </div>
+      </li> -->
+      <!-- Adding a search form  -->
+      <div class="col-sm-4 col-md-4 navbar-right">
+  
+        <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+  
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search " name="image">
+            <div class="input-group-btn">
+              <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+          </div>
+  
+        </form>
+      </div>
+      <!-- search form end -->
+    </div>
+  </nav>
