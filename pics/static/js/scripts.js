@@ -1,4 +1,4 @@
-function dragLink(){
+function copyLink(){
     alert("Drag the image and drop to the clipboard to get the link")
 }
 $(document).ready(function(){

@@ -10,6 +10,6 @@ $(document).ready(function () {
         document.execCommand('Copy')
 
         // Alert the copied text
-        alert('Link Copied!')
+        alert('drag and drop the image on the clipboard!')
     })
 })
