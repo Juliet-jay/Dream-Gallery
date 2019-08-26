@@ -34,6 +34,7 @@ class Image(models.Model):
     description = models.CharField(max_length=500)
     category = models.ForeignKey('Category',on_delete =models.CASCADE,null='True',blank=True)
     location =models.ForeignKey('Location',on_delete= models.CASCADE,null='True',blank=True)
+    pub_date=models.DateTimeField(auto_now=True)
     def __str__(self):
         return self.name
     

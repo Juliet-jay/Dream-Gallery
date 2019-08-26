@@ -1,85 +1,101 @@
+
 {% extends 'base.html' %}
+
 {% block content %}
-        <div class="beuty">
-        <div class="row">
-                {% for pic in all_pic %}
-                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 columns">
-                    <div class="scale">
-                        <div class="opacity">
-                            <div class="view">
-                                <a href="" class="btn-view">{{pic.name}}</a>
-                            </div>
-                        </div>
-                    <img src="{{pic.image.url}}" alt="{{pic.name}}" class="img-fluid myimage">
-                         <button id='btn-copy' onclick="copyLink()"   data-info="{{request.get_host }}{{pic.image.url}}" type="button" class="btn btn-info btn-xs">
-                        <span class="glyphicon glyphicon-copy"></span>
-                        copy link
-                        </button>
-                        
-                        <div id="myModal" class="modal">
-            
-                            <!-- The Close Button -->
-                            <span class="close">&times;</span>
-                          
-                            <!-- Modal Content (The Image) -->
-                            <img src='' class="modal-content" id="modal-con">
-                           
-                            <!-- Modal Caption (Image Text) -->
-                            <div id="caption"></div>
-                          </div>
-                        
-            
-                            <div class="container">
-                                
-                                   
-                                <button
-            
-                                id='details'
+{{super }}
+<style>
+ body{
+  background-image: url('https://cdn.cnn.com/cnnnext/dam/assets/160122140719-beyond-the-call-of-duty-background-large-169.jpg');
+  background-size: 100%;
+ }
+</style>
 
-                                data-description='{{pic.description}}'
+<head>
+  
 
-                                data-location='{{pic.location}}'
-                    
-                                data-category='{{pic.category}}'
-                    
-                                
-                    
-                                type="button"
-                    
-                                class="btn btn-info btn-xs info-btn"
-                    
-                                data-toggle="modal">
-                                             View Details
-                    
-                              </button>
-            
-                              <div id="modal-details" class="modal">
-            
-                                <span class="close">&times;</span>
-                      
-                                <div class="modal-content">
-                      
-                                <!-- <blockquote id="caption-d"> -->
-                      
-                                  <ul>
-                      
-                                    <label>DESCRIPTION:</label>
-                      
-                                    <li class="oneone"></li>
-                      
-                                    <label>LOCATION:</label>
-                      
-                                    <li class="twotwo"></li>
-                                    <label>CATEGORY:</label>
-                                    <li class="threethree"></li>
-                                  </ul>
-                                <!-- </blockquote> -->
-                                </div>
-                              </div>
-                          </div> 
-                      </div>
-                </div>
-                {% endfor %}
+
+  <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script>
+    function copyToClipboard(element) {
+      $(element).select();
+      document.execCommand("copy");
+    }
+  </script>
+</head>
+
+
+<div class="container">
+  <div class="row">
+    {% for data in all_pic %}
+
+    
+      <h3 style="color: azure"> {{data.name}} </h3>
+      <div class="col-lg-4 col-lg-4 col-md-12 ">
+        <img src="{{data.image.url}}" class=" img img-responsive" data-toggle="modal" data-target="#{{data.id}}">
+      </div>
+
+
+       
+      <div class="modal fade" id="{{data.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header text-center">
+              <h3 class="modal-title" id="exampleModalLongTitle">{{data.name}}</h3>
+              <h4 class="modal-title">{{data.location}}</h4>
+              <h5 class="modal-title">{{data.post_date}}</h5>
+
+
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
             </div>
-            {% endblock %}
+
+            <div class="modal-body">
+
+              <div class="text-center">
+
+                <img src='{{data.image.url}}' class="img-responsive" width=100% height=100% alt="Image">
+
+              </div>
+              </div>
+              
+
+            </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+              <div class="form-group row">
+              
+                  <input id="{{data.id}}-url" class="form-control input-md responsive" type="text"
+                    value="{{data.image.url}}">
+                
+
+
+                
+                  <button class="btn btn-secondary" onclick="copyToClipboard('#{{data.id}}-url')">Copy</button>
+                </div>
+            
+
+
+
+              <div class="text-center">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        
+      
+   
+
+    {% endfor %}
+  </div>
+
+
+
 </div>
+
+
+{% endblock %}

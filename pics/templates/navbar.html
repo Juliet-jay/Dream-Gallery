@@ -5,9 +5,19 @@
 <nav class="navbar">
     <div class="container-fluid">
       <div class="navbar-header">
-          <h1><a  href="{% url 'gallery' %}">My Gallery</a></h1>
+          <h1><a  href="{% url 'gallery' %}">The Gallery</a></h1>
       </div>
-     
+      <!-- <li class="nav-item dropdown">
+        <a style="font-size: 17px" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Locations
+        </a>
+        <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
+          {% for location in pics %}
+          <a style="font-size: 17px" class="dropdown-item" href="/location/{{location.id}}">{{location.name}}</a>
+          {% endfor %}
+        </div>
+      </li> -->
+      <!-- Adding a search form  -->
       <div class="col-sm-4 col-md-4 navbar-right">
   
         <form class="navbar-form" role="search" action="{% url 'search_results' %}">
