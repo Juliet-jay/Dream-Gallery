@@ -1,5 +1,5 @@
 function copyLink(){
-    alert("The link was coppied on the clipboard")
+    alert("Drag the image and drop to the clipboard to get the link")
 }
 $(document).ready(function(){
 
