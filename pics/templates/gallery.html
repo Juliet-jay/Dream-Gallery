@@ -1,18 +1,23 @@
-
 {% extends 'base.html' %}
 
 {% block content %}
 {{super }}
 <style>
  body{
-  background-image: url('https://cdn.cnn.com/cnnnext/dam/assets/160122140719-beyond-the-call-of-duty-background-large-169.jp');
-  background-size: 100%;
+  background-image: url('https://images.unsplash.com/photo-1487587090589-f458461e549d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+
  }
 </style>
 
 <head>
   </div>
-
+  <script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/plugins.js"></script>
+	<script src="js/active.js"></script>
 
   <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -28,11 +33,17 @@
 
 <div class="container">
   <div class="row">
-    {% for data in all_pic %}
-
-    
-      <h3 style="color: azure"> {{data.name}} </h3>
-      <div class="col-lg-4 col-lg-4 col-lg-4 col-md-12 ">
+    <div class="row galler__wrap mt--40" style="background-color:white
+    ;">
+      
+      {% for data in all_pic %}
+      <h3 style="color: black
+      "> {{data.name}} </h3>
+      
+     
+					
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12 animated bounceInLeft delay-2s">
+      <!-- <div class="col-lg-4 col-lg-4 col-lg-4 col-md-12 "> -->
         <img src="{{data.image.url}}" class=" img img-responsive" data-toggle="modal" data-target="#{{data.id}}">
       </div>
 
